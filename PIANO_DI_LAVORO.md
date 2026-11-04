@@ -1,138 +1,101 @@
 # 🚀 Project Work 2 · Machine Learning
-## 📋 Piano di Lavoro e Assegnazione Ruoli del Team
+## 📋 Piano di Lavoro Collaborativo (Team da 4)
 
 Benvenuti nel piano operativo per il **Project Work 2: La catena di montaggio di un modello**.  
-Questo documento definisce in modo chiaro e dettagliato i compiti di ciascun membro del gruppo per le giornate di **mercoledì (Oggi: Blocchi 1–6)** e **venerdì (Blocchi 7–8 e Presentazione Finale)**.
+In questo assetto il lavoro è distribuito in modo equilibrato e collaborativo: **nessuno lavora da solo**, ogni ruolo contribuisce direttamente al codice e all'analisi, e **la presentazione di 5 minuti sarà divisa tra tutti e 4 i componenti** (circa 1 minuto e 15 secondi a testa).
 
 ---
 
-### 👥 Il Team e i Ruoli Ufficiali
-
-| Componente | Ruolo Ufficiale | Focus Principale |
-|---|---|---|
-| **⌨️ Lucas** | **Tastiera** *(Lead Developer & Git)* | Scrive ed esegue il codice nel notebook, risolve i controlli `assert` e gestisce i commit su GitHub. |
-| **🗺️ Giuseppe** | **Mappa** *(Data Scientist & Algoritmi)* | Consulta documentazione scikit-learn e slide: progetta le feature (colonne), seleziona i modelli e definisce le griglie per gli iperparametri. |
-| **📝 Luca** | **Diario** *(Metrics Tracker & Documenter)* | Compila in tempo reale la **Scheda del gruppo** in fondo al notebook, monitora le metriche (MAE, miglioramento %) e risponde alle domande analitiche. |
-| **🎤 Amanda** | **Voce** *(Business Analyst & Speaker)* | Guida l'analisi qualitativa dei dati aziendali, prepara la scaletta e le slide della presentazione di 5 minuti per venerdì. |
-
----
-
-### 🔄 Flusso di Lavoro Collaborativo
+### 👥 Il Team e la Ripartizione delle Responsabilità
 
 ```mermaid
 flowchart TD
-    G["🗺️ Giuseppe (Mappa)<br/>Progetta feature matematiche & griglie di modelli"] --> L["⌨️ Lucas (Tastiera)<br/>Scrive codice Pandas/Scikit-learn nel notebook"]
-    L --> K["📝 Luca (Diario)<br/>Registra risultati, MAE e compila la Scheda Gruppo"]
-    K --> A["🎤 Amanda (Voce)<br/>Prepara la presentazione di 5 minuti e l'interpretazione di business"]
-    L -.-> GH["🌐 GitHub Repository<br/>Sincronizzazione continua del codice"]
+    subgraph Dati & Modelli ["🔬 Area Data Science & Analisi"]
+        A["📊 Amanda<br/><b>Data Analyst & Feature Engineering</b><br/>• Esplorazione dati & famiglia (B1)<br/>• Invenzione feature & medie mobili (B2)<br/>• Analisi scorte & business (B8)"]
+        G["🤖 Giuseppe<br/><b>Machine Learning Specialist</b><br/>• Scelta dei 4 modelli (B5)<br/>• Griglie per GridSearchCV (B6)<br/>• Strategia di retraining (B7)"]
+    end
+
+    subgraph Sviluppo & Documentazione ["💻 Sviluppo, Scheda & Presentazione"]
+        L["⌨️ Lucas<br/><b>Lead Developer & Git</b><br/>• Scrittura codice Pandas & Scikit-learn<br/>• Esecuzione notebook & test assert<br/>• Gestione e push su GitHub"]
+        K["📝 Luca<br/><b>Diario & Metrics Coordinator</b><br/>• Compilazione Scheda del Gruppo<br/>• Tracciamento MAE e baseline<br/>• Coordinamento slide/scaletta speech"]
+    end
+
+    A <-->|Collaborano su dati & formule| G
+    A & G -->|Passano formule & parametri| L
+    L -->|Fornisce risultati & tabelle| K
+    L & A & G & K --> Pres["🎤 Presentazione di Gruppo (5 min)<br/><i>Tutti e 4 presentano una parte</i>"]
 ```
 
 ---
 
-## 📌 Scheda di Dettaglio per Singolo Membro
+### 📌 Dettaglio dei Ruoli e delle Mansioni
 
-### ⌨️ Lucas · Il Ruolo della Tastiera (Sviluppo & Git)
-> *"Non si va avanti senza il via libera dei controlli automatici."*
-
-- **I tuoi compiti principali:**
-  1. **Scrittura del codice:** Prendi le idee e formule di Giuseppe e le traduci in codice pulito con Pandas e Scikit-Learn.
-  2. **Esecuzione delle celle:** Esegui le celle sempre rigorosamente dall'alto verso il basso.
-  3. **Superamento degli assert:** Controlli che ogni cella di verifica stampi `OK`.
-  4. **Gestione del Version Control (Git):** 
-     - Esegui commit regolari ad ogni blocco completato con successo:
-       ```bash
-       git add project_work_2_building_blocks.ipynb
-       git commit -m "Completato Blocco X"
-       git push origin main
-       ```
-  5. **Supporto al team:** Condividi a schermo o tramite repository le tabelle e i grafici aggiornati.
+| Componente | Focus Operativo | Compiti Specifici |
+|---|---|---|
+| **⌨️ Lucas** | **Tastiera & Version Control** | • Scrive ed esegue il codice nel notebook.<br/>• Risolve gli errori e verifica che ogni cella dia `OK`.<br/>• Esegue `git push` a ogni blocco per allineare il team. |
+| **📊 Amanda** | **Dati, Feature & Magazzino** | • **Blocco 1:** Analisi dei grafici di vendita e comportamento articoli.<br/>• **Blocco 2:** Progetta e testa le feature matematiche (medie mobili, trend, deviazioni).<br/>• **Blocco 8:** Analisi di business delle scorte (`safety stock`) rispetto al sistema reale. |
+| **🤖 Giuseppe** | **Algoritmi & Ottimizzazione** | • **Blocco 5:** Seleziona i 4 modelli (LinearRegression, kNN, DecisionTree, RandomForest).<br/>• **Blocco 6:** Imposta le griglie di iperparametri per la Cross-Validation (`GridSearchCV`).<br/>• **Blocco 7:** Valuta l'impatto del retraining mensile su settembre. |
+| **📝 Luca** | **Diario, Metriche & Scaletta** | • Compila la **Scheda del Gruppo** (Cella 42) in tempo reale.<br/>• Traccia la MAE della baseline e calcola il miglioramento percentuale `%`.<br/>• Prepara la scaletta e coordina i punti per la presentazione a 4. |
 
 ---
 
-### 🗺️ Giuseppe · Il Ruolo della Mappa (Algoritmi & Feature)
-> *"Senza la Mappa, nei blocchi 2, 5 e 6 il modello naviga al buio."*
+## 🤝 Come Collaborano tra loro (Le Sinergie)
 
-- **I tuoi compiti principali:**
-  1. **Blocco 1 (Scelta Famiglia):** Verifica la lista delle famiglie per trovarne una solida (consigliata: *Tenute e guarnizioni* o *Valvole del compressore*).
-  2. **Blocco 2 (Invenzione Feature):** Progetta almeno 3-4 colonne matematiche intelligenti da dare a Lucas:
-     - `media_6_mesi`: livello medio di consumo.
-     - `std_6_mesi`: volatilità/incertezza della domanda.
-     - `trend_recente` (`lag_1 - lag_2`): tendenza di crescita o calo.
-     - `max_6_mesi`: picco massimo recente.
-  3. **Blocco 5 (Scelta dei Modelli):** Seleziona i 4 algoritmi concorrenti da confrontare:
-     - Regressione Lineare (`LinearRegression`)
-     - Vicini più prossimi (`KNeighborsRegressor`)
-     - Albero Decisionale (`DecisionTreeRegressor`)
-     - Random Forest (`RandomForestRegressor`)
-  4. **Blocco 6 (Griglia Iperparametri):** Scegli quali parametri testare con `GridSearchCV` (es. numero di vicini $k$, profondità dell'albero `max_depth`, numero di stimatori `n_estimators`).
+1. **Amanda ↔️ Giuseppe (La coppia Data Science):**
+   - Amanda si focalizza sui **dati e sulle colonne** (cosa insegnare all'algoritmo).
+   - Giuseppe si focalizza sui **modelli e sul tuning** (quale algoritmo impara meglio).
+   - Insieme decidono quali feature aiutano di più i rispettivi modelli.
+
+2. **Amanda & Giuseppe ➡️ Lucas (Dalla teoria al codice):**
+   - Amanda e Giuseppe passano a Lucas le formule matematiche e i parametri da inserire nelle funzioni.
+   - Lucas scrive il codice Pandas/Scikit-learn, fa girare il kernel e verifica i controlli `assert`.
+
+3. **Lucas ➡️ Luca (Dal codice alla documentazione):**
+   - Appena la cella dà `OK`, Lucas passa a Luca i numeri (MAE test, MAE cross-validation, parametri scelti).
+   - Luca trascrive tutto nella scheda ufficiale e formula le risposte di riflessione.
 
 ---
 
-### 📝 Luca · Il Ruolo del Diario (Scheda del Gruppo & Metriche)
-> *"La scheda non si compila alla fine: si aggiorna ad ogni passo."*
+## ⏱️ Tabella di Marcia Passo-Passo (Oggi: Blocchi 1 – 6)
 
-- **I tuoi compiti principali:**
-  1. **Compilazione della Scheda (Cella 42 del notebook):** Compili man mano ogni singola voce richiesta dal docente.
-  2. **Tracciamento Metriche:**
-     - Segni la **MAE della Baseline** (il benchmark da battere calcolato nel Blocco 4).
-     - Ordini la classifica dei modelli del Blocco 5 dalla MAE più bassa alla più alta.
-     - Riporti i migliori iperparametri trovati dalla Cross-Validation nel Blocco 6.
-  3. **Risposte di Riflessione:** Rispondi alle domande aperte della scheda:
-     - *Perché abbiamo inventato proprio quelle feature?*
-     - *La classifica ci ha sorpreso? Perché un modello batte gli altri?*
-     - *La MAE sul test è vicina a quella della cross-validation?*
-  4. **Calcolo Miglioramento:** Calcoli la percentuale finale di miglioramento rispetto alla baseline (`(baseline - modello) / baseline * 100`).
+### 🔹 Blocco 1 · Scelta della Famiglia (Con quali dati lavoriamo?)
+- **Amanda:** Analizza le famiglie e propone quella migliore (es. *Tenute e guarnizioni* o *Valvole del compressore*). Esamina i 6 grafici di esempio per capire se la domanda è costante o a picchi.
+- **Lucas:** Inserisce il nome della famiglia in `load_family` e scrive la condizione `total_sold >= min_total`.
+- **Luca:** Segna nella scheda il nome della famiglia e il numero di articoli attivi rimasti.
 
----
+### 🔹 Blocco 2 · Feature Engineering (Cosa diamo in pasto al modello?)
+- **Amanda:** Progetta le 4 feature chiave da aggiungere ai lag:
+  1. `media_6_mesi`: media delle uscite nei 6 mesi precedenti.
+  2. `std_6_mesi`: deviazione standard (misura l'instabilità della domanda).
+  3. `trend_recente` (`lag_1 - lag_2`): direzione delle vendite (in salita o discesa).
+  4. `max_6_mesi`: picco massimo recente.
+- **Lucas:** Inserisce le colonne dentro `make_examples` ed esegue il controllo `assert`.
+- **Luca:** Trascrive nella scheda i nomi delle colonne e la motivazione per cui dovrebbero aiutare il modello.
 
-### 🎤 Amanda · Il Ruolo della Voce (Presentazione & Storytelling Aziendale)
-> *"I dati contano, ma il modo in cui raccontiamo la decisione all'azienda vince la gara."*
+### 🔹 Blocco 3 & 4 · Split Temporale e Baseline
+- **Giuseppe:** Spiega perché usiamo uno split temporale (luglio-agosto 2026 come test) e non casuale (evitare contaminazione dati dal futuro).
+- **Lucas:** Completa `is_test = examples["target_month"].isin(test_months)` e calcola la baseline (media delle ultime 3 colonne).
+- **Luca:** Segna la **MAE Baseline** nella scheda: è il punteggio ufficiale da battere!
 
-- **I tuoi compiti principali:**
-  1. **Analisi qualitativa (Blocco 1):** Esamini i grafici a barre dei 6 articoli estratti a caso:
-     - La domanda è regolare (XYZ tipo X) o a scatti (tipo Z)?
-     - Ci sono articoli ad alto fatturato (classe A) o di contorno (classe C)?
-  2. **Preparazione della Presentazione di 5 Minuti (Venerdì):**
-     - Strutturi le slide o la scaletta del discorso in 4 punti:
-       1. **Contesto & Famiglia:** Perché abbiamo scelto questa famiglia e che profilo di domanda ha.
-       2. **Le nostre Feature:** Come abbiamo aiutato l'algoritmo a "capire" il trend.
-       3. **Gara tra Modelli & Risultato:** Quale modello ha vinto e il miglioramento percentuale.
-       4. **Settembre & Decisione Operativa:** Come si comporta su dati nuovi e il confronto con le scorte dell'azienda.
-  3. **Scrittura alla lavagna (Oggi fine Blocco 6):** Porti alla lavagna del corso il miglioramento percentuale del gruppo per la classifica parziale!
+### 🔹 Blocco 5 · Gara tra Modelli
+- **Giuseppe:** Definisce i 4 modelli candidati (`LinearRegression`, `KNeighborsRegressor`, `DecisionTreeRegressor`, `RandomForestRegressor`).
+- **Lucas:** Completa `train_model` (`fit`) ed `evaluate_model` (`mean_absolute_error`) ed esegue la gara.
+- **Luca:** Scrive la classifica ordinata per MAE nella scheda del gruppo.
+- **Amanda:** Esamina quale modello ha risposto meglio alle feature create nel Blocco 2.
 
----
-
-## ⏱️ Tabella di Marcia: Oggi vs Venerdì
-
-### 📅 OGGI (Blocchi 1 – 6) · Obiettivo: Modello Sigillato
-
-| Blocco | Domanda Chiave | Chi fa cosa | Output Atteso |
-|---|---|---|---|
-| **Blocco 1** | *Con quali dati lavoro?* | **Giuseppe** seleziona la famiglia · **Lucas** scrive `load_family` · **Luca** segna gli articoli attivi · **Amanda** studia i pattern sui grafici. | `OK · blocco 1` |
-| **Blocco 2** | *Che cosa do in pasto al modello?* | **Giuseppe** fornisce le formule · **Lucas** scrive `make_examples` con Pandas · **Luca** scheda le feature · **Amanda** annota perché sono rilevanti. | `OK · blocco 2` (almeno 6 feature) |
-| **Blocco 3** | *Quando il test è onesto?* | **Lucas** fa lo split temporale (`2026-07` e `2026-08`) · **Giuseppe** spiega perché non si usa random split. | `OK · blocco 3` |
-| **Blocco 4** | *Il modello batte una regola semplice?* | **Lucas** calcola la media a 3 mesi · **Luca** segna la **MAE Baseline** (numero da battere!). | `OK · blocco 4` |
-| **Blocco 5** | *Come scelgo il modello?* | **Giuseppe** imposta i 4 modelli · **Lucas** esegue il training & test · **Luca** crea la classifica · **Amanda** evidenzia il vincitore. | `OK · blocco 5` |
-| **Blocco 6** | *Come scelgo gli iperparametri?* | **Giuseppe** dà la griglia di ricerca · **Lucas** lancia `GridSearchCV` e sigilla il modello · **Luca** calcola il miglioramento % · **Amanda** lo porta alla lavagna! | `OK · blocco 6` & Sigillo |
+### 🔹 Blocco 6 · Tuning Iperparametri & Sigillo
+- **Giuseppe:** Imposta la griglia di ricerca per `GridSearchCV` (es. $k$ per kNN e profondità/stimatori per Random Forest).
+- **Lucas:** Scrive `choose_hyperparameters` con 5 parti di cross-validation e seleziona il `chosen_model`.
+- **Luca:** Registra gli iperparametri ottimali e il miglioramento percentuale finale `%`.
+- **Tutto il team:** Va a scrivere il proprio miglioramento percentuale alla lavagna dell'aula!
 
 ---
 
-### 📅 VENERDÌ (Blocchi 7 – 8 & Esposizione) · Obiettivo: Prova del Nove e Scorte
+## 🎤 La Presentazione di Venerdì (5 Minuti Divisi tra Tutti)
 
-1. **Blocco 7 (Verifica su Settembre 2026):**
-   - Si sblocca `warehouse_september.csv`.
-   - Il modello sigillato viene messo alla prova sul mese nuovo senza mai averlo visto prima.
-   - **Lucas & Giuseppe** testano se conviene riallenare il modello ogni mese o tenerlo fisso.
-2. **Blocco 8 (Politica di Scorte & Decisione di Magazzino):**
-   - Calcolo della scorta di sicurezza (`safety_stock`) e punto di riordino (`reorder_point`).
-   - Confronto con le decisioni attuali dell'azienda (`warehouse_policy_reference.csv`).
-   - **Luca** completa le considerazioni sui costi di magazzino vs rottura di stock.
-3. **Presentazione Finale di 5 Minuti:**
-   - **Amanda** espone alla classe con il supporto del team.
+Nessuno deve parlare per 5 minuti da solo: ciascuno espone esattamente la parte su cui ha lavorato per circa **1 minuto e 15 secondi**:
 
----
-
-### 🏆 3 Consigli d'Oro per il Nostro Team
-1. **La gara non premia chi ha la MAE più bassa in assoluto**, ma chi ha il **miglioramento percentuale maggiore** rispetto alla baseline della propria famiglia.
-2. **Feature Engineering batte iperparametri:** Dedicare cura alle colonne del Blocco 2 è ciò che permette ai modelli di staccare nettamente la media a 3 mesi.
-3. **Sincronizzazione continua:** Ogni volta che completiamo un blocco, Lucas fa `git push` così tutto il team ha il file allineato.
+1. **Amanda (~1 min):** *Introduzione & Dati.* Racconta la famiglia scelta, come si comportano gli articoli (regolari vs a picchi) e le feature inventate nel Blocco 2.
+2. **Lucas (~1 min):** *Pipeline & Implementazione.* Spiega come è stata montata la catena (split temporale senza barare, feature engineering in Pandas, pulizia del codice).
+3. **Giuseppe (~1 min):** *Modelli & Ottimizzazione.* Racconta la gara tra i 4 modelli, perché certi algoritmi hanno faticato e come la cross-validation ha scelto gli iperparametri ideali.
+4. **Luca (~1 min):** *Risultati, Settembre & Decisione Aziendale.* Mostra il miglioramento finale rispetto alla baseline, il comportamento sul mese nuovo (settembre) e il confronto con le scorte reali dell'azienda.
