@@ -1,10 +1,10 @@
 # 🚀 Project Work 2 · Machine Learning
-## 📋 Piano di Lavoro Collaborativo & Stato Avanzamento (Team da 4)
+## 📋 Piano di Lavoro Collaborativo & Stato Avanzamento (Team da 5)
 
 Benvenuti nel documento di lavoro e tracciamento del **Project Work 2: La catena di montaggio di un modello**.  
-In questo assetto il lavoro è stato distribuito in modo equilibrato e collaborativo tra i 4 componenti del gruppo: **Amanda, Luca, Giuseppe e Matteo**.
+In questo assetto il lavoro è stato distribuito in modo equilibrato e collaborativo tra i **5 componenti del gruppo**: **Lucas Correia (io), Luca Motta, Giuseppe, Matteo Landucci e Amanda**.
 
-Tutti i blocchi operativi (1–8) sono stati **completati con successo**, tutti i test `assert` restituiscono `OK` e la presentazione finale di 5 minuti è pronta e suddivisa in parti uguali (circa 1 minuto e 15 secondi a testa).
+Tutti i blocchi operativi (1–8) sono stati **completati con successo**, tutti i test `assert` restituiscono `OK`, la **Scheda del Gruppo** (Cella 42) è integralmente compilata e la relazione finale per il professore è pronta.
 
 ---
 
@@ -14,18 +14,22 @@ Tutti i blocchi operativi (1–8) sono stati **completati con successo**, tutti 
 flowchart TD
     subgraph Dati & Modelli ["🔬 Area Data Science & Analisi"]
         A["📊 Amanda<br/><b>Data Analyst & Feature Engineering</b><br/>• Esplorazione dati & famiglia (B1)<br/>• Invenzione 5 feature & trend (B2)<br/>• Analisi scorte di sicurezza (B8)"]
-        G["🤖 Giuseppe<br/><b>Machine Learning Specialist</b><br/>• Selezione dei 4 modelli candidati (B5)<br/>• Grid Search con CV a 5 fold (B6)<br/>• Strategia di retraining su 3 mesi (B7)"]
+        G["🤖 Giuseppe<br/><b>Machine Learning Specialist</b><br/>• Selezione dei 4 modelli candidati (B5)<br/>• Grid Search con CV a 5 fold (B6)<br/>• Analisi modelli non lineari"]
     end
 
-    subgraph Sviluppo & Documentazione ["💻 Sviluppo, Scheda & Coordinamento"]
-        L["⌨️ Luca<br/><b>Lead Developer & Git</b><br/>• Scrittura codice Pandas & Scikit-learn<br/>• Esecuzione notebook & test assert<br/>• Split temporale e gestione repository"]
-        M["📝 Matteo<br/><b>Diario & Metrics Coordinator</b><br/>• Compilazione Scheda del Gruppo (Cella 42)<br/>• Monitoraggio MAE baseline vs modello<br/>• Coordinamento metriche & speech"]
+    subgraph Sviluppo & Ingegneria ["💻 Sviluppo, Pipeline & Git"]
+        LC["⌨️ Lucas Correia (io)<br/><b>Lead Developer & Git Coordination</b><br/>• Coordinamento del codice nel notebook<br/>• Esecuzione test assert e controlli<br/>• Gestione e push su GitHub"]
+        LM["💻 Luca Motta<br/><b>Data Engineering Specialist</b><br/>• Costruzione matrici X e target y<br/>• Implementazione split temporale (B3)<br/>• Calcolo baseline a 3 mesi (B4)"]
     end
 
-    A <-->|Collaborano su feature & algoritmi| G
-    A & G -->|Passano formule & logiche| L
-    L -->|Fornisce risultati, tabelle & plot| M
-    L & A & G & M --> Pres["🎤 Presentazione di Gruppo (5 min)<br/><i>Amanda → Luca → Giuseppe → Matteo</i>"]
+    subgraph Metriche & Diario ["📝 Metriche, Diario & Business"]
+        M["📝 Matteo Landucci<br/><b>Diario & Metrics Coordinator</b><br/>• Compilazione Scheda del Gruppo (Cella 42)<br/>• Monitoraggio MAE (B4-B6) e settembre (B7)<br/>• Esperimento di retraining mensile"]
+    end
+
+    A <-->|Collaborano su dati & feature| G
+    A & G -->|Passano formule & iperparametri| LC & LM
+    LC & LM -->|Forniscono metriche & plot| M
+    LC & LM & G & M & A --> Rel["🎓 Relazione per il Professore & Presentazione"]
 ```
 
 ---
@@ -34,10 +38,11 @@ flowchart TD
 
 | Componente | Focus Operativo | Compiti Svolti |
 |---|---|---|
+| **⌨️ Lucas Correia (io)** | **Lead Developer & Git** | • Coordinamento generale della pipeline nel notebook.<br/>• Scrittura del codice di addestramento, previsione e controlli `assert`.<br/>• Gestione del version control e pubblicazione sul repository GitHub. |
+| **💻 Luca Motta** | **Data Engineering** | • **Blocco 3:** Implementazione dello split temporale onesto (nessuna fuga di dati dal futuro).<br/>• **Blocco 4:** Creazione ed esecuzione vettoriale della baseline (media 3 mesi).<br/>• Supporto alla strutturazione dei DataFrame di Scikit-learn. |
 | **📊 Amanda** | **Dati, Feature & Magazzino** | • **Blocco 1:** Selezione famiglia *Tenute e guarnizioni* (765 articoli attivi con vendite $\ge 12$). Analisi dei pattern di vendita (regolari, a ondate, picco unico).<br/>• **Blocco 2:** Progettazione delle 5 nuove feature matematiche.<br/>• **Blocco 8:** Analisi di business sulle scorte di sicurezza rispetto al sistema aziendale. |
-| **⌨️ Luca** | **Tastiera & Lead Developer** | • **Blocco 3:** Implementazione dello split temporale onesto (nessuna fuga di dati dal futuro).<br/>• **Blocco 4:** Creazione della baseline basata sulla media mobile a 3 mesi.<br/>• Scrittura e manutenzione del codice notebook, superamento controlli `assert` e versioning Git/GitHub. |
-| **🤖 Giuseppe** | **Algoritmi & Ottimizzazione** | • **Blocco 5:** Configurazione della gara tra 4 modelli (`LinearRegression`, `kNN`, `DecisionTree`, `RandomForest`).<br/>• **Blocco 6:** Tuning con `GridSearchCV` a 5 fold e selezione del modello sigillato (*Random Forest*).<br/>• **Blocco 7:** Implementazione della strategia di riallenamento incrementale mese per mese. |
-| **📝 Matteo** | **Diario & Metrics Coordinator** | • Compilazione completa della **Scheda del Gruppo** (Cella 42).<br/>• Tracciamento e confronto delle MAE (Baseline: 6.79 vs Random Forest: 6.67 $\rightarrow$ +1.8%).<br/>• Analisi delle performance sul mese non visto di settembre (+2.6% vs baseline) e coordinamento presentazione. |
+| **🤖 Giuseppe** | **Algoritmi & Ottimizzazione** | • **Blocco 5:** Configurazione della gara tra 4 modelli (`LinearRegression`, `kNN`, `DecisionTree`, `RandomForest`).<br/>• **Blocco 6:** Tuning con `GridSearchCV` a 5 fold e selezione del modello sigillato (*Random Forest*).<br/>• Analisi del crollo di kNN e stabilità delle foreste casuali. |
+| **📝 Matteo Landucci** | **Diario & Metrics Coordinator** | • Compilazione completa della **Scheda del Gruppo** (Cella 42).<br/>• Tracciamento e confronto delle MAE (Baseline: 6.79 vs Random Forest: 6.67 $\rightarrow$ +1.8%).<br/>• **Blocco 7:** Conduzione dell'esperimento di retraining mensile e analisi del mese di settembre (+2.6% vs baseline). |
 
 ---
 
@@ -58,15 +63,8 @@ Tutti i blocchi sono stati completati con successo e convalidati:
 
 ---
 
-## 🎤 La Presentazione di Gruppo (5 Minuti Divisi tra Tutti)
+## 📄 File di Documentazione e Consegna per il Professore
 
-Ciascun componente espone la propria sezione per circa **1 minuto e 15 secondi**:
-
-```
-[00:00 - 01:15] 📊 Amanda  : Dati, Famiglia & Feature Engineering (Blocchi 1 & 2)
-[01:15 - 02:30] ⌨️ Luca    : Pipeline, Split Temporale & Baseline (Blocchi 3 & 4)
-[02:30 - 03:45] 🤖 Giuseppe: Modelli, Tuning con CV & Modello Sigillato (Blocchi 5 & 6)
-[03:45 - 05:00] 📝 Matteo  : Settembre, Retraining, Scorte Aziendali & Conclusioni (Blocchi 7 & 8)
-```
-
-Per i dettagli dello speech consultare [PRESENTAZIONE.md](PRESENTAZIONE.md) o aprire l'interfaccia interattiva a slide in [presentazione.html](presentazione.html).
+- **Relazione Ufficiale:** [`RELAZIONE_FINALE_PROFESSORE.md`](RELAZIONE_FINALE_PROFESSORE.md) e la versione stampabile [`RELAZIONE_FINALE_PROFESSORE.html`](RELAZIONE_FINALE_PROFESSORE.html).
+- **Notebook Verificato:** [`project_work_2_building_blocks.ipynb`](project_work_2_building_blocks.ipynb) con codice e scheda del gruppo (Cella 42).
+- **Presentazione del Team:** [`PRESENTAZIONE.md`](PRESENTAZIONE.md) e slide interattive in [`presentazione.html`](presentazione.html).

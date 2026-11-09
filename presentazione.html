@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Project Work 2 · Presentazione del Gruppo</title>
+  <title>Project Work 2 · Presentazione del Gruppo (Team da 5)</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
     .slide { display: none; }
@@ -50,396 +50,330 @@
         <h1 class="text-4xl font-bold mb-2">La Catena di Montaggio<br>di un Modello</h1>
         <p class="text-[var(--muted-foreground)] text-lg mb-8">Previsione della domanda per un magazzino di ricambi industriali</p>
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-6 inline-block">
-          <p class="font-semibold text-lg mb-3">👥 Team Luca</p>
-          <div class="flex flex-wrap gap-4 justify-center text-sm">
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full">📊 Amanda · Data Analyst</span>
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full">⌨️ Luca · Lead Developer</span>
+          <p class="font-semibold text-lg mb-3">👥 Team Lucas (5 Componenti)</p>
+          <div class="flex flex-wrap gap-2 justify-center text-sm">
+            <span class="bg-[var(--accent)] px-3 py-1 rounded-full">📊 Amanda · Feature Engineering</span>
+            <span class="bg-[var(--accent)] px-3 py-1 rounded-full">💻 Luca Motta · Data Engineering</span>
+            <span class="bg-[var(--accent)] px-3 py-1 rounded-full">⌨️ Lucas Correia (io) · Lead Developer</span>
             <span class="bg-[var(--accent)] px-3 py-1 rounded-full">🤖 Giuseppe · ML Specialist</span>
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full">📝 Matteo · Metrics & Diario</span>
+            <span class="bg-[var(--accent)] px-3 py-1 rounded-full">📝 Matteo Landucci · Metrics & Diario</span>
           </div>
         </div>
-        <p class="text-[var(--muted-foreground)] text-sm mt-6">Famiglia: <strong>Tenute e guarnizioni</strong> · 765 articoli</p>
+        <p class="text-[var(--muted-foreground)] text-sm mt-6">Famiglia: <strong>Tenute e guarnizioni</strong> · 765 articoli attivi</p>
       </div>
     </div>
 
     <!-- ==================== SLIDE 2: Amanda - Dati & Feature ==================== -->
-    <div class="slide flex-col gap-6 fade-in" data-speaker="📊 Amanda" data-color="#e74c8b">
+    <div class="slide flex-col gap-6 fade-in" data-speaker="📊 Amanda (1 min)" data-color="#e74c8b">
       <div class="max-w-4xl mx-auto w-full">
         <h2 class="text-2xl font-bold mb-1">📊 I Dati e le Feature</h2>
         <p class="text-[var(--muted-foreground)] mb-4">Blocchi 1 & 2 · Come abbiamo preparato i dati per il modello</p>
 
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 mb-4">
           <h3 class="font-semibold mb-2">🔍 La Famiglia: Tenute e guarnizioni</h3>
-          <p class="text-sm text-[var(--muted-foreground)] mb-3">7.771 articoli nel magazzino → filtrati a <strong>765 articoli</strong> attivi nella nostra famiglia. 17 mesi di storico (aprile 2025 → agosto 2026).</p>
+          <p class="text-sm text-[var(--muted-foreground)] mb-3">7.771 articoli nel magazzino → filtrati a <strong>765 articoli</strong> attivi nella nostra famiglia (&ge; 12 pezzi venduti). 17 mesi di storico iniziale.</p>
 
-          <h4 class="font-semibold text-sm mt-4 mb-2">Tre tipi di domanda osservati:</h4>
+          <h4 class="font-semibold text-sm mt-4 mb-2">Tre comportamenti osservati:</h4>
           <div class="grid grid-cols-3 gap-3">
             <div class="key-point bg-[var(--accent)]">
               <p class="font-semibold text-sm">📈 Regolari</p>
-              <p class="text-xs text-[var(--muted-foreground)]">Escono ogni mese con quantità simili. Più facili da predire.</p>
+              <p class="text-xs text-[var(--muted-foreground)]">Uscite continue e stabili. Facili da prevedere con medie e lag.</p>
             </div>
             <div class="key-point bg-[var(--accent)]">
               <p class="font-semibold text-sm">🌊 A ondate</p>
-              <p class="text-xs text-[var(--muted-foreground)]">Niente per mesi, poi un blocco. Il modello non sa quando arriverà la prossima onda.</p>
+              <p class="text-xs text-[var(--muted-foreground)]">Mesi di zero, poi ordini a blocchi. Difficili perché non periodici.</p>
             </div>
             <div class="key-point bg-[var(--accent)]">
               <p class="font-semibold text-sm">⚡ Un solo picco</p>
-              <p class="text-xs text-[var(--muted-foreground)]">Un grande ordine isolato. Impossibile da prevedere con lo storico.</p>
+              <p class="text-xs text-[var(--muted-foreground)]">Un grande ordine isolato. Il più difficile: impossibile da prevedere con lo storico.</p>
             </div>
           </div>
         </div>
 
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
-          <h3 class="font-semibold mb-3">🧪 Le 5 Feature Inventate (Blocco 2)</h3>
+          <h3 class="font-semibold mb-3">🧪 Le 5 Feature Ingegnerizzate (Blocco 2)</h3>
           <table>
             <thead><tr><th>Feature</th><th>Cosa misura</th><th>Perché aiuta</th></tr></thead>
             <tbody>
-              <tr>
-                <td class="font-mono text-sm">media_6_mesi</td>
-                <td class="text-sm">Media uscite ultimi 6 mesi</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Livello medio stabile, meno rumoroso dei singoli lag</td>
-              </tr>
-              <tr>
-                <td class="font-mono text-sm">std_6_mesi</td>
-                <td class="text-sm">Deviazione standard 6 mesi</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Distingue articoli regolari da instabili</td>
-              </tr>
-              <tr>
-                <td class="font-mono text-sm">trend_recente</td>
-                <td class="text-sm">lag_1 − lag_2</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Direzione: domanda in salita o discesa?</td>
-              </tr>
-              <tr>
-                <td class="font-mono text-sm">max_6_mesi</td>
-                <td class="text-sm">Picco massimo recente</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Cattura punte, utile per articoli a ondate</td>
-              </tr>
-              <tr>
-                <td class="font-mono text-sm">lead_time_days</td>
-                <td class="text-sm">Tempo consegna fornitore</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Info fissa che può influenzare i pattern</td>
-              </tr>
+              <tr><td class="font-mono text-sm">media_6_mesi</td><td class="text-sm">Media uscite ultimi 6 mesi</td><td class="text-sm text-[var(--muted-foreground)]">Livello medio stabile, riduce il rumore dei singoli lag</td></tr>
+              <tr><td class="font-mono text-sm">std_6_mesi</td><td class="text-sm">Deviazione standard 6 mesi</td><td class="text-sm text-[var(--muted-foreground)]">Distingue articoli regolari da instabili</td></tr>
+              <tr><td class="font-mono text-sm">trend_recente</td><td class="text-sm">lag_1 − lag_2</td><td class="text-sm text-[var(--muted-foreground)]">Derivata discreta: domanda in crescita o discesa?</td></tr>
+              <tr><td class="font-mono text-sm">max_6_mesi</td><td class="text-sm">Picco massimo recente</td><td class="text-sm text-[var(--muted-foreground)]">Cattura punte e magnitudo degli ordini a blocchi</td></tr>
+              <tr><td class="font-mono text-sm">lead_time_days</td><td class="text-sm">Tempo consegna fornitore</td><td class="text-sm text-[var(--muted-foreground)]">Variabile logistica correlata alle politiche di riordino</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- ==================== SLIDE 3: Luca - Pipeline ==================== -->
-    <div class="slide flex-col gap-6 fade-in" data-speaker="⌨️ Luca" data-color="#3b82f6">
+    <!-- ==================== SLIDE 3: Luca Motta - Pipeline ==================== -->
+    <div class="slide flex-col gap-6 fade-in" data-speaker="💻 Luca Motta (1 min)" data-color="#3b82f6">
       <div class="max-w-4xl mx-auto w-full">
-        <h2 class="text-2xl font-bold mb-1">⌨️ La Pipeline & l'Implementazione</h2>
-        <p class="text-[var(--muted-foreground)] mb-4">Blocchi 3 & 4 · Come abbiamo costruito la catena di montaggio</p>
+        <h2 class="text-2xl font-bold mb-1">💻 Pipeline, Split Temporale & Baseline</h2>
+        <p class="text-[var(--muted-foreground)] mb-4">Blocchi 3 & 4 · Come costruire un test onesto</p>
 
         <div class="grid grid-cols-2 gap-4 mb-4">
           <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
             <h3 class="font-semibold mb-2">🔒 Split Temporale Onesto (Blocco 3)</h3>
-            <p class="text-sm text-[var(--muted-foreground)] mb-3">Non si mescola mai: il passato allena, il futuro testa.</p>
+            <p class="text-sm text-[var(--muted-foreground)] mb-3">Vietato mescolare le date: il passato allena, il futuro testa.</p>
             <div class="space-y-2">
               <div class="flex items-center gap-2">
                 <span class="bg-green-500/20 text-green-600 px-2 py-1 rounded text-xs font-semibold">TRAIN</span>
-                <span class="text-sm">Aprile 2025 → Giugno 2026</span>
+                <span class="text-sm">Aprile 2025 → Giugno 2026 (6.885 campioni)</span>
               </div>
               <div class="flex items-center gap-2">
                 <span class="bg-red-500/20 text-red-600 px-2 py-1 rounded text-xs font-semibold">TEST</span>
-                <span class="text-sm">Luglio–Agosto 2026</span>
+                <span class="text-sm">Luglio – Agosto 2026 (1.530 campioni)</span>
               </div>
               <div class="flex items-center gap-2">
                 <span class="bg-purple-500/20 text-purple-600 px-2 py-1 rounded text-xs font-semibold">FUTURO</span>
-                <span class="text-sm">Settembre 2026 (mai visto!)</span>
+                <span class="text-sm">Settembre 2026 (sigillato per la prova del nove)</span>
               </div>
             </div>
             <div class="key-point bg-[var(--accent)] mt-3">
-              <p class="text-xs">⚠️ Uno split casuale avrebbe "barato": il modello vedrebbe dati dal futuro durante l'addestramento.</p>
+              <p class="text-xs">⚠️ Uno split casuale avrebbe 'barato' con dati dal futuro durante l'addestramento.</p>
             </div>
           </div>
 
           <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
             <h3 class="font-semibold mb-2">📏 La Baseline (Blocco 4)</h3>
-            <p class="text-sm text-[var(--muted-foreground)] mb-3">Regola semplice: "il prossimo mese sarà la media degli ultimi 3".</p>
+            <p class="text-sm text-[var(--muted-foreground)] mb-3">Regola semplice del magazziniere: media uscite ultimi 3 mesi.</p>
             <div class="metric-card bg-[var(--accent)] mt-4">
               <div class="metric-value text-[var(--primary)]">6.79</div>
               <div class="metric-label text-[var(--muted-foreground)]">MAE Baseline (pezzi)</div>
             </div>
-            <p class="text-xs text-[var(--muted-foreground)] mt-3 text-center">Questo è il punteggio da battere: se il modello non fa meglio di così, è inutile.</p>
+            <p class="text-xs text-[var(--muted-foreground)] mt-3 text-center">Questo è il benchmark di business: se un modello non fa meglio di 6.79, non serve.</p>
           </div>
-        </div>
-
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
-          <h3 class="font-semibold mb-2">🔧 Stack Tecnologico</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full text-sm">🐍 Python 3.14</span>
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full text-sm">🐼 Pandas</span>
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full text-sm">🔬 Scikit-learn</span>
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full text-sm">📈 Matplotlib</span>
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full text-sm">📓 Jupyter Notebook</span>
-            <span class="bg-[var(--accent)] px-3 py-1 rounded-full text-sm">🔗 Git & GitHub</span>
-          </div>
-          <p class="text-xs text-[var(--muted-foreground)] mt-3">Ogni blocco ha un controllo <code>assert</code> automatico: se la cella stampa "OK", il codice è corretto. Tutti i blocchi (1–8) passano ✅</p>
         </div>
       </div>
     </div>
 
-    <!-- ==================== SLIDE 4: Giuseppe - Modelli ==================== -->
-    <div class="slide flex-col gap-6 fade-in" data-speaker="🤖 Giuseppe" data-color="#f59e0b">
+    <!-- ==================== SLIDE 4: Lucas Correia - Gara Modelli ==================== -->
+    <div class="slide flex-col gap-6 fade-in" data-speaker="⌨️ Lucas Correia (1 min)" data-color="#10b981">
       <div class="max-w-4xl mx-auto w-full">
-        <h2 class="text-2xl font-bold mb-1">🤖 La Gara tra Modelli</h2>
-        <p class="text-[var(--muted-foreground)] mb-4">Blocco 5 · 4 algoritmi in competizione per predire la domanda</p>
+        <h2 class="text-2xl font-bold mb-1">⌨️ Architettura & Gara tra Modelli</h2>
+        <p class="text-[var(--muted-foreground)] mb-4">Blocco 5 · 4 algoritmi eterogenei a confronto</p>
 
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 mb-4">
-          <h3 class="font-semibold mb-3">🏁 Classifica MAE sul Test (luglio-agosto)</h3>
+          <h3 class="font-semibold mb-3">🏁 Classifica MAE sul Test Set (luglio-agosto)</h3>
           <table>
-            <thead><tr><th>#</th><th>Modello</th><th>Lezione</th><th>MAE (pezzi)</th><th>vs Baseline</th></tr></thead>
+            <thead><tr><th>#</th><th>Modello</th><th>Famiglia</th><th>MAE (pezzi)</th><th>vs Baseline</th></tr></thead>
             <tbody>
               <tr class="bg-green-500/10">
                 <td>🥇</td>
                 <td class="font-semibold">Random Forest</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Lezione 7</td>
+                <td class="text-sm text-[var(--muted-foreground)]">Ensemble Bagging</td>
                 <td class="font-mono font-bold">6.67</td>
-                <td class="text-green-600 font-semibold">✅ −0.12</td>
+                <td class="text-green-600 font-semibold">✅ -0.12 (Batte la baseline)</td>
               </tr>
               <tr>
                 <td>📏</td>
                 <td class="text-[var(--muted-foreground)]">Baseline (media 3 mesi)</td>
-                <td class="text-sm text-[var(--muted-foreground)]">—</td>
+                <td class="text-sm text-[var(--muted-foreground)]">Euristica empirica</td>
                 <td class="font-mono">6.79</td>
                 <td class="text-[var(--muted-foreground)]">—</td>
               </tr>
               <tr>
                 <td>🥈</td>
                 <td>Linear Regression</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Lezione 2</td>
+                <td class="text-sm text-[var(--muted-foreground)]">Modello Lineare OLS</td>
                 <td class="font-mono">6.99</td>
                 <td class="text-red-500">+0.20</td>
               </tr>
               <tr>
                 <td>🥉</td>
                 <td>Decision Tree</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Lezione 6</td>
+                <td class="text-sm text-[var(--muted-foreground)]">Albero Singolo</td>
                 <td class="font-mono">7.02</td>
                 <td class="text-red-500">+0.23</td>
               </tr>
               <tr>
                 <td>4°</td>
                 <td>kNN (k=5)</td>
-                <td class="text-sm text-[var(--muted-foreground)]">Lezione 3</td>
+                <td class="text-sm text-[var(--muted-foreground)]">Basato su istanze</td>
                 <td class="font-mono">14.62</td>
-                <td class="text-red-500">+7.83 😱</td>
+                <td class="text-red-500">+7.83 ❌</td>
               </tr>
             </tbody>
           </table>
           <div class="key-point bg-[var(--accent)] mt-3">
-            <p class="text-sm">💡 <strong>Sorpresa:</strong> kNN con k=5 è andato malissimo — troppo pochi vicini sovrappesano articoli simili ma con domanda diversa. Solo Random Forest batte la baseline.</p>
+            <p class="text-sm">💡 <strong>Perché kNN è crollato?</strong> Distanze euclidee su scale non normalizzate: con 5 vicini gli articoli a picco hanno falsato le stime. Random Forest vince grazie al bagging e alla riduzione di varianza.</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ==================== SLIDE 5: Giuseppe - Tuning ==================== -->
-    <div class="slide flex-col gap-6 fade-in" data-speaker="🤖 Giuseppe" data-color="#f59e0b">
+    <div class="slide flex-col gap-6 fade-in" data-speaker="🤖 Giuseppe (1 min)" data-color="#f59e0b">
       <div class="max-w-4xl mx-auto w-full">
-        <h2 class="text-2xl font-bold mb-1">🎛️ Tuning degli Iperparametri</h2>
-        <p class="text-[var(--muted-foreground)] mb-4">Blocco 6 · GridSearchCV con 5-fold cross-validation</p>
+        <h2 class="text-2xl font-bold mb-1">🤖 Tuning 5-Fold CV & Modello Sigillato</h2>
+        <p class="text-[var(--muted-foreground)] mb-4">Blocco 6 · Ottimizzazione con GridSearchCV</p>
 
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 mb-4">
-          <h3 class="font-semibold mb-3">⚙️ Iperparametri Ottimali</h3>
+          <h3 class="font-semibold mb-3">⚙️ Risultati del Tuning</h3>
           <table>
-            <thead><tr><th>Modello</th><th>Iperparametri scelti</th><th>MAE CV</th><th>MAE Test</th><th>Δ</th></tr></thead>
+            <thead><tr><th>Modello</th><th>Iperparametri Ottimali</th><th>MAE CV</th><th>MAE Test</th><th>Stabilità (Δ)</th></tr></thead>
             <tbody>
               <tr class="bg-green-500/10">
                 <td class="font-semibold">Random Forest</td>
                 <td class="font-mono text-sm">n_estimators=200, max_depth=5</td>
                 <td class="font-mono">6.38</td>
                 <td class="font-mono font-bold">6.67</td>
-                <td class="text-sm text-[var(--muted-foreground)]">0.29 ✅</td>
+                <td class="text-sm text-green-600 font-semibold">0.29 pezzi ✅</td>
               </tr>
               <tr>
                 <td>Decision Tree</td>
                 <td class="font-mono text-sm">max_depth=5</td>
                 <td class="font-mono">6.60</td>
                 <td class="font-mono">7.02</td>
-                <td class="text-sm text-[var(--muted-foreground)]">0.42</td>
+                <td class="text-sm text-[var(--muted-foreground)]">0.42 pezzi</td>
               </tr>
               <tr>
                 <td>kNN</td>
                 <td class="font-mono text-sm">n_neighbors=15</td>
                 <td class="font-mono">6.59</td>
                 <td class="font-mono">8.84</td>
-                <td class="text-sm text-red-500">2.25 ⚠️</td>
+                <td class="text-sm text-red-500">2.25 pezzi ⚠️</td>
               </tr>
             </tbody>
           </table>
-          <p class="text-xs text-[var(--muted-foreground)] mt-3">Δ = differenza tra MAE in CV e MAE sul test. Più è piccola, più il modello è stabile e affidabile.</p>
         </div>
 
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
-          <h3 class="font-semibold mb-2">🔏 Modello Sigillato</h3>
-          <div class="grid grid-cols-3 gap-4 mt-3">
+          <h3 class="font-semibold mb-2">🔏 Il Modello Sigillato</h3>
+          <div class="grid grid-cols-3 gap-4 mt-2">
             <div class="metric-card bg-[var(--accent)]">
-              <div class="text-sm text-[var(--muted-foreground)]">Modello</div>
-              <div class="font-bold text-lg mt-1">Random Forest</div>
-              <div class="text-xs text-[var(--muted-foreground)] mt-1">200 alberi, profondità 5</div>
+              <div class="text-xs text-[var(--muted-foreground)]">Architettura</div>
+              <div class="font-bold text-base mt-1">Random Forest</div>
+              <div class="text-xs text-[var(--muted-foreground)]">200 alberi, depth 5</div>
             </div>
             <div class="metric-card bg-[var(--accent)]">
-              <div class="text-sm text-[var(--muted-foreground)]">MAE Test</div>
+              <div class="text-xs text-[var(--muted-foreground)]">MAE Test</div>
               <div class="metric-value text-[var(--primary)]">6.67</div>
-              <div class="metric-label text-[var(--muted-foreground)]">pezzi</div>
+              <div class="text-xs text-[var(--muted-foreground)]">pezzi</div>
             </div>
-            <div class="metric-card bg-[var(--accent)]">
-              <div class="text-sm text-[var(--muted-foreground)]">Miglioramento</div>
+            <div class="metric-card bg-green-500/10 border-green-500">
+              <div class="text-xs text-[var(--muted-foreground)]">Miglioramento</div>
               <div class="metric-value text-green-600">+1.8%</div>
-              <div class="metric-label text-[var(--muted-foreground)]">vs baseline</div>
+              <div class="text-xs text-[var(--muted-foreground)]">vs baseline</div>
             </div>
           </div>
-          <div class="key-point bg-[var(--accent)] mt-3">
-            <p class="text-sm">🔒 Da qui il modello è <strong>sigillato</strong>: non si cambia più. Venerdì lo proviamo su settembre così com'è — come succede in azienda.</p>
-          </div>
+          <p class="text-xs text-[var(--muted-foreground)] mt-3">Da qui il modello è <strong>sigillato</strong>: va in produzione e attende il mese nuovo senza modifiche.</p>
         </div>
       </div>
     </div>
 
-    <!-- ==================== SLIDE 6: Matteo - Settembre & Retraining ==================== -->
-    <div class="slide flex-col gap-6 fade-in" data-speaker="📝 Matteo" data-color="#10b981">
+    <!-- ==================== SLIDE 6: Matteo Landucci - Settembre ==================== -->
+    <div class="slide flex-col gap-6 fade-in" data-speaker="📝 Matteo Landucci (1 min)" data-color="#8b5cf6">
       <div class="max-w-4xl mx-auto w-full">
-        <h2 class="text-2xl font-bold mb-1">📝 Settembre: la Prova del Nove</h2>
-        <p class="text-[var(--muted-foreground)] mb-4">Blocchi 7 · Il modello sigillato su un mese mai visto</p>
+        <h2 class="text-2xl font-bold mb-1">📝 Settembre 2026: La Prova del Nove</h2>
+        <p class="text-[var(--muted-foreground)] mb-4">Blocco 7 · Test sul mese reale e analisi del Retraining</p>
 
         <div class="grid grid-cols-2 gap-4 mb-4">
           <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
             <h3 class="font-semibold mb-3">🎯 Risultati su Settembre</h3>
-            <div class="space-y-3">
-              <div class="metric-card bg-[var(--accent)]">
-                <div class="metric-label text-[var(--muted-foreground)]">MAE Modello (settembre)</div>
-                <div class="metric-value text-[var(--primary)]">15.96</div>
+            <div class="space-y-2">
+              <div class="flex justify-between p-2 rounded bg-[var(--accent)] text-sm">
+                <span>MAE Modello Sigillato</span>
+                <span class="font-mono font-bold text-[var(--primary)]">15.96 pezzi</span>
               </div>
-              <div class="metric-card bg-[var(--accent)]">
-                <div class="metric-label text-[var(--muted-foreground)]">MAE Baseline (settembre)</div>
-                <div class="metric-value">16.39</div>
+              <div class="flex justify-between p-2 rounded bg-[var(--accent)] text-sm">
+                <span>MAE Baseline</span>
+                <span class="font-mono font-bold">16.39 pezzi</span>
               </div>
-              <div class="metric-card bg-green-500/10 border-green-500">
-                <div class="metric-label text-[var(--muted-foreground)]">Miglioramento</div>
-                <div class="metric-value text-green-600">+2.6%</div>
-                <div class="text-xs text-[var(--muted-foreground)]">era +1.8% su luglio-agosto</div>
+              <div class="flex justify-between p-2 rounded bg-green-500/10 text-sm">
+                <span>Miglioramento Percentuale</span>
+                <span class="font-mono font-bold text-green-600">+2.6% (in crescita!)</span>
               </div>
             </div>
+            <p class="text-xs text-[var(--muted-foreground)] mt-3">L'errore è raddoppiato per tutti per la riapertura autunnale delle fabbriche, ma il modello ha consolidato il vantaggio!</p>
           </div>
 
           <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
-            <h3 class="font-semibold mb-3">🔄 Riallenare ogni mese? (Blocco 7)</h3>
-            <table class="text-sm">
-              <thead><tr><th>Mese</th><th>Fisso</th><th>Riallenato</th><th>Baseline</th></tr></thead>
+            <h3 class="font-semibold mb-3">🔄 Riallenare ogni mese?</h3>
+            <table class="text-xs">
+              <thead><tr><th>Mese</th><th>Fisso</th><th>Riallenato</th></tr></thead>
               <tbody>
-                <tr><td>Luglio</td><td class="font-mono">6.26</td><td class="font-mono">6.26</td><td class="font-mono">6.36</td></tr>
-                <tr><td>Agosto</td><td class="font-mono">7.09</td><td class="font-mono text-green-600 font-semibold">6.81</td><td class="font-mono">7.23</td></tr>
-                <tr><td>Settembre</td><td class="font-mono text-green-600 font-semibold">15.96</td><td class="font-mono">16.43</td><td class="font-mono">16.39</td></tr>
+                <tr><td>Luglio</td><td class="font-mono">6.26</td><td class="font-mono">6.26</td></tr>
+                <tr><td>Agosto</td><td class="font-mono">7.09</td><td class="font-mono text-green-600 font-bold">6.81</td></tr>
+                <tr><td>Settembre</td><td class="font-mono text-green-600 font-bold">15.96</td><td class="font-mono">16.43</td></tr>
               </tbody>
             </table>
             <div class="key-point bg-[var(--accent)] mt-3">
-              <p class="text-xs">📌 <strong>Verdetto:</strong> dipende dal mese. Ad agosto riallenare migliora, a settembre peggiora. Con solo 3 mesi non si può dare una regola — servirebbe un anno.</p>
+              <p class="text-xs">Differenza media: <strong>-0.063 pezzi</strong>. Non ha senso sostenere costi di retraining mensile: meglio un riaddestramento semestrale.</p>
             </div>
           </div>
-        </div>
-
-        <div class="key-point bg-[var(--accent)]">
-          <p class="text-sm">💡 <strong>Perché settembre è più difficile?</strong> La MAE raddoppia (da ~7 a ~16 pezzi). Probabilmente il rientro post-ferie crea picchi di domanda anomali. Ma il modello ha <em>tenuto</em> il miglioramento rispetto alla baseline!</p>
         </div>
       </div>
     </div>
 
-    <!-- ==================== SLIDE 7: Matteo - Business ==================== -->
-    <div class="slide flex-col gap-6 fade-in" data-speaker="📝 Matteo" data-color="#10b981">
+    <!-- ==================== SLIDE 7: Scorte e Business ==================== -->
+    <div class="slide flex-col gap-6 fade-in" data-speaker="📦 Supply Chain & Business" data-color="#0284c7">
       <div class="max-w-4xl mx-auto w-full">
-        <h2 class="text-2xl font-bold mb-1">📦 Dalle Previsioni alle Scorte</h2>
-        <p class="text-[var(--muted-foreground)] mb-4">Blocco 8 · Scorte di sicurezza e confronto con il sistema aziendale</p>
+        <h2 class="text-2xl font-bold mb-1">📦 Dalle Previsioni alle Decisioni di Magazzino</h2>
+        <p class="text-[var(--muted-foreground)] mb-4">Blocco 8 · Calcolo Scorta di Sicurezza e Punto di Riordino per Ottobre 2026</p>
 
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5 mb-4">
-          <h3 class="font-semibold mb-3">⚖️ Noi vs Sistema Aziendale (640 articoli con politica attiva)</h3>
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <table class="text-sm">
-                <thead><tr><th>Metrica</th><th>Nostra</th><th>Sistema</th></tr></thead>
-                <tbody>
-                  <tr><td>Scorta di sicurezza (media)</td><td class="font-mono font-bold">9.2</td><td class="font-mono">13.7</td></tr>
-                  <tr><td>Punto di riordino (media)</td><td class="font-mono font-bold">16.3</td><td class="font-mono">30.4</td></tr>
-                  <tr><td>Diff. assoluta media ROP</td><td class="font-mono" colspan="2">17.7 pezzi</td></tr>
-                  <tr><td>Valore merce al ROP</td><td class="font-mono">322.120 €</td><td class="font-mono">293.220 €</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="flex flex-col justify-center">
-              <div class="key-point bg-[var(--accent)]">
-                <p class="text-sm">🏪 Mediamente noi teniamo <strong>meno scorta</strong> del sistema aziendale (16 vs 30 pezzi al punto di riordino).</p>
-              </div>
-              <div class="key-point bg-[var(--accent)]">
-                <p class="text-sm">💰 Il valore totale al ROP è però simile: articoli diversi hanno costi diversi.</p>
-              </div>
-            </div>
+          <h3 class="font-semibold mb-3">⚖️ Noi vs Sistema Aziendale (640 articoli)</h3>
+          <table>
+            <thead><tr><th>Metrica Logistica</th><th>Nostra Catena</th><th>Sistema Aziendale</th></tr></thead>
+            <tbody>
+              <tr><td>Scorta di Sicurezza (media)</td><td class="font-mono font-bold">9.2 pezzi</td><td class="font-mono">13.7 pezzi</td></tr>
+              <tr><td>Punto di Riordino (media)</td><td class="font-mono font-bold text-green-600">16.3 pezzi</td><td class="font-mono">30.4 pezzi</td></tr>
+              <tr><td>Valore merce a scorta al ROP</td><td class="font-mono">322.120 €</td><td class="font-mono">293.220 €</td></tr>
+            </tbody>
+          </table>
+          <div class="key-point bg-[var(--accent)] mt-3">
+            <p class="text-sm">Magazzino fisicamente molto più snello (16.3 vs 30.4 pezzi al ROP). Valore monetario analogo perché proteggiamo in modo selettivo gli articoli a maggior costo unitario.</p>
           </div>
         </div>
 
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
-          <h3 class="font-semibold mb-2">🔍 Dove siamo più lontani?</h3>
-          <p class="text-sm text-[var(--muted-foreground)]">Gli articoli con domanda molto irregolare (classe Z) o con picchi isolati. Il sistema aziendale usa più informazioni di noi: lotti minimi dei fornitori, politiche diverse per articolo, giacenza attuale. La domanda non è "chi ha ragione" — è "i nostri numeri sono sensati?".</p>
-          <div class="key-point bg-[var(--accent)] mt-3">
-            <p class="text-sm">✅ <strong>Risposta:</strong> Sì, la nostra catena di montaggio produce numeri ragionevoli per la maggior parte degli articoli.</p>
+          <h3 class="font-semibold mb-2">🎯 Trade-off di Business: Classe A vs Classe C</h3>
+          <div class="grid grid-cols-2 gap-4 text-sm mt-2">
+            <div class="border border-slate-200 rounded p-3">
+              <p class="font-bold text-slate-800">Classe A (Alto valore strategico):</p>
+              <p class="text-xs text-[var(--muted-foreground)] mt-1">Preferiamo l'errore di <strong>stare sopra</strong>: fermare un impianto industriale per un O-ring mancante genera penali e danni devastanti.</p>
+            </div>
+            <div class="border border-slate-200 rounded p-3">
+              <p class="font-bold text-slate-800">Classe C (Basso valore/fungibili):</p>
+              <p class="text-xs text-[var(--muted-foreground)] mt-1">Preferiamo l'errore di <strong>stare sotto</strong>: accumulare stock su articoli a basso margine satura inutilmente il magazzino.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ==================== SLIDE 8: Conclusioni (Tutti) ==================== -->
-    <div class="slide flex-col gap-6 fade-in" data-speaker="👥 Tutti" data-color="#8b5cf6">
+    <!-- ==================== SLIDE 8: Conclusioni ==================== -->
+    <div class="slide flex-col gap-6 fade-in" data-speaker="👥 Team Lucas (Conclusioni)" data-color="#8b5cf6">
       <div class="max-w-4xl mx-auto w-full">
-        <h2 class="text-2xl font-bold mb-1">🎯 Conclusioni & Riflessioni</h2>
-        <p class="text-[var(--muted-foreground)] mb-4">Cosa abbiamo imparato dalla catena di montaggio</p>
+        <h2 class="text-2xl font-bold mb-1">🎯 Conclusioni & Riflessioni Finali</h2>
+        <p class="text-[var(--muted-foreground)] mb-4">Cosa abbiamo imparato dalla Catena di Montaggio</p>
 
         <div class="grid grid-cols-2 gap-4 mb-4">
           <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
-            <h3 class="font-semibold mb-3">📊 I Numeri Chiave</h3>
-            <div class="space-y-3">
-              <div class="flex justify-between items-center p-2 rounded bg-[var(--accent)]">
-                <span class="text-sm">Baseline MAE</span>
-                <span class="font-mono font-bold">6.79 pezzi</span>
-              </div>
-              <div class="flex justify-between items-center p-2 rounded bg-[var(--accent)]">
-                <span class="text-sm">Modello sigillato MAE</span>
-                <span class="font-mono font-bold text-[var(--primary)]">6.67 pezzi</span>
-              </div>
-              <div class="flex justify-between items-center p-2 rounded bg-green-500/10">
-                <span class="text-sm">Miglioramento (test)</span>
-                <span class="font-mono font-bold text-green-600">+1.8%</span>
-              </div>
-              <div class="flex justify-between items-center p-2 rounded bg-green-500/10">
-                <span class="text-sm">Miglioramento (settembre)</span>
-                <span class="font-mono font-bold text-green-600">+2.6%</span>
-              </div>
+            <h3 class="font-semibold mb-3">📊 Risultati Chiave Raggiunti</h3>
+            <div class="space-y-2 text-sm">
+              <div class="p-2 rounded bg-[var(--accent)]">✅ <strong>765 articoli attivi</strong> filtrati con successo</div>
+              <div class="p-2 rounded bg-[var(--accent)]">✅ <strong>5 feature ingegnerizzate</strong> senza data leakage</div>
+              <div class="p-2 rounded bg-green-500/10">✅ <strong>Miglioramento consolidato:</strong> +1.8% a luglio-agosto, <strong>+2.6% a settembre</strong></div>
+              <div class="p-2 rounded bg-[var(--accent)]">✅ <strong>Punti di riordino ottimizzati:</strong> 16.3 vs 30.4 pezzi</div>
             </div>
           </div>
 
           <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
-            <h3 class="font-semibold mb-3">💡 Cosa Abbiamo Capito</h3>
-            <div class="space-y-2">
-              <div class="key-point bg-[var(--accent)]">
-                <p class="text-sm">🔒 L'importanza dello <strong>split temporale</strong> vs casuale — e perché guardare il test più volte "consuma" la sua validità.</p>
-              </div>
-              <div class="key-point bg-[var(--accent)]">
-                <p class="text-sm">🏭 Un modello non è una singola decisione: è una <strong>catena di montaggio</strong> fatta di passi ripetibili.</p>
-              </div>
-              <div class="key-point bg-[var(--accent)]">
-                <p class="text-sm">📈 Anche un miglioramento piccolo (+1.8%) è un risultato reale — e tiene sul futuro.</p>
-              </div>
+            <h3 class="font-semibold mb-3">💡 Lezioni Metodologiche</h3>
+            <div class="space-y-2 text-xs text-slate-600">
+              <div class="key-point bg-[var(--accent)]"><strong>1. Split temporale:</strong> l'unico modo per avere stime oneste ed evitare l'illusione da data leakage.</div>
+              <div class="key-point bg-[var(--accent)]"><strong>2. Baseline obbligatoria:</strong> nessun modello complesso va accettato se non batte una regola semplice a costo zero.</div>
+              <div class="key-point bg-[var(--accent)]"><strong>3. Retraining critico:</strong> riaddestrare continuamente può peggiorare le prestazioni introducendo rumore estivo.</div>
             </div>
           </div>
         </div>
 
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-5">
-          <h3 class="font-semibold mb-2">🤔 Una Cosa che Non Ci Torna Ancora</h3>
-          <p class="text-sm text-[var(--muted-foreground)]">Perché il modello riallenato a settembre va peggio del fisso? Forse i dati di agosto (mese estivo anomalo) lo confondono invece di aiutarlo. Servirebbe un anno intero di dati per dare una risposta definitiva.</p>
-        </div>
-
         <div class="text-center mt-6">
-          <p class="text-lg font-semibold">Grazie! 🙏</p>
-          <p class="text-sm text-[var(--muted-foreground)]">Team Luca · Amanda · Luca · Giuseppe · Matteo</p>
+          <p class="text-xl font-bold">Grazie per l'attenzione! 🙏</p>
+          <p class="text-sm text-[var(--muted-foreground)] mt-1">Lucas Correia · Luca Motta · Giuseppe · Matteo Landucci · Amanda</p>
         </div>
       </div>
     </div>
@@ -461,9 +395,17 @@
     const slides = document.querySelectorAll('.slide');
     const total = slides.length;
     const dotsContainer = document.getElementById('dots');
-    const speakers = ['👥 Tutti', '📊 Amanda', '⌨️ Luca', '🤖 Giuseppe', '🤖 Giuseppe', '📝 Matteo', '📝 Matteo', '👥 Tutti'];
+    const speakers = [
+      '👥 Team Lucas (5 Componenti)',
+      '📊 Amanda (1 min)',
+      '💻 Luca Motta (1 min)',
+      '⌨️ Lucas Correia (1 min)',
+      '🤖 Giuseppe (1 min)',
+      '📝 Matteo Landucci (1 min)',
+      '📦 Supply Chain & Business',
+      '👥 Team Lucas (Conclusioni)'
+    ];
 
-    // Create dots
     for (let i = 0; i < total; i++) {
       const dot = document.createElement('button');
       dot.className = 'progress-dot w-2.5 h-2.5 rounded-full bg-[var(--border)] transition-all';
@@ -479,7 +421,6 @@
       void slides[current].offsetWidth;
       slides[current].classList.add('fade-in');
 
-      // Update UI
       document.getElementById('slide-counter').textContent = `${current + 1} / ${total}`;
       document.getElementById('progress-bar').style.width = `${((current + 1) / total) * 100}%`;
       document.getElementById('speaker-name').textContent = speakers[current];
@@ -487,7 +428,6 @@
       document.getElementById('next-btn').disabled = current === total - 1;
       document.getElementById('next-btn').textContent = current === total - 1 ? '✓ Fine' : 'Successivo →';
 
-      // Update dots
       dotsContainer.querySelectorAll('.progress-dot').forEach((d, i) => {
         d.classList.toggle('active', i === current);
         d.style.backgroundColor = i === current ? 'var(--primary)' : 'var(--border)';
@@ -499,7 +439,6 @@
       if (next >= 0 && next < total) goToSlide(next);
     }
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
